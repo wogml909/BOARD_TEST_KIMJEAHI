@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 목록</title>
+</head>
+<body>
+    <h1>게시글목록</h1>
+    <table border="1">
+      <a href="/board/insert">글쓰기</a>
+         <tr>
+            <th width="50">no</th>
+            <th width="300">제목</th>
+            <th width="200">작성자</th>
+            <th width="200">등록일</th>
+            <th width="100">수정일</th>
+            <th width="100">조회수</th>
+         </tr>
+         <tr>
+               <td align="conter">
+                <a th:href="|/board/read?no=${board.no}|" 
+                      th:text="${board.title}"></a>       
+               </td>
+         </tr>
+         <tr >
+               <td align="conter">
+                 <input type="text" name="writer" th:text="${board.writer}">
+               </td>
+         </tr>
+         <tr >
+               <td align="conter">
+                 <span th:text="${ #dates.fomat (board.redDate, 'yyyy-mm-dd HH-mm-ss')}"></span>
+               </td>
+         </tr>
+         <tr >
+               <td align="conter">
+                 <span th:text="${ #dates.fomat (board.updDate, 'yyyy-mm-dd HH-mm-ss')}"></span>
+               </td>
+         </tr>
+        <tr>
+            <td align="conter" th:text="${board.views}"></td>
+        </tr>
+    </table>
+</body>
+</html>
